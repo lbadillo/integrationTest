@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: lud
+      comment: schema.sql
+      changes:
+        - sqlFile:
+            path: ../migrations/schema.sql
+            relativeToChangelogFile: true
