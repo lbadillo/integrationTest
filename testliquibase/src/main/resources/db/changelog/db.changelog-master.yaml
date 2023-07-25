@@ -7,3 +7,11 @@ databaseChangeLog:
         - sqlFile:
             path: ../migrations/schema.sql
             relativeToChangelogFile: true
+  - changeSet:
+      id: 2
+      author: lud
+      comment: tutorial.sql
+      changes:
+        - sqlFile:
+            path: ../migrations/tutorial.sql
+            relativeToChangelogFile: true

@@ -1,0 +1,2 @@
+CREATE TABLE IF NOT EXISTS tutorial
+(id INT NOT NULL AUTO_INCREMENT, name VARCHAR(255), duration INT, description VARCHAR(255), PRIMARY KEY (id));
