@@ -12,5 +12,12 @@
   *  To run the integration test  ``./mvnw clean verify -Pfailsafe``
 
 
+## Reactive Branch
+* PoC to test Mono and Flux from reactive spring boot webflux
+* Integrated with liquibase and no test classes
+* only run the application
+
+# Postman
+API-THIRDPARTY-CURRENCY.postman_collection.json
 
 
