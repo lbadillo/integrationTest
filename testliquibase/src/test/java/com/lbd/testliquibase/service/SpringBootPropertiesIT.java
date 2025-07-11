@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 @ActiveProfiles("test")
-public class SpringBootTestPropertiesTest {
+public class SpringBootPropertiesIT {
 
     @Value("${services.fixer.url}")
     String foo;
