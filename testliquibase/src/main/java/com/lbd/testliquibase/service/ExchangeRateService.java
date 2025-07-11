@@ -14,10 +14,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-/*
-import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
-*/
+
 
 
 @Service
@@ -73,44 +70,5 @@ public class ExchangeRateService {
     }
 
 
-   /* public Mono<FixerDTO> getFixerData(String base, String symbol) {
-        log.info("URL: " + propertiesData.getUrl());
-        log.info("profile: " + propertiesData.getName());
-        WebClient webClient = WebClient.create(propertiesData.getUrl());
 
-        return webClient.get()
-                .uri(uriBuilder -> uriBuilder
-                        .path(VERSION)
-                        .queryParam("base", base)
-                        .queryParam("symbols", symbol)
-                        .build())
-                .retrieve()
-                .bodyToMono(FixerDTO.class);
-
-
-    }
-*/
-  /*  public Mono<ExchangeRateDTO> buildResponse(String base, String symbol) {
-
-        Mono<FixerDTO> fixerDTO = getFixerData(base, symbol);
-        return fixerDTO.map(fixerDTO1 -> {
-
-            return repository.save(ExchangeRateEntity.builder()
-                    .date(fixerDTO1.getDate())
-                    .originCurrency(base)
-                    .finalCurrency(symbol)
-                    .value(String.valueOf(fixerDTO1.getRates().get(symbol)))
-                    .build());
-
-        }).flatMap(element -> Mono.just(ExchangeRateDTO.builder()
-                .id(element.getId())
-                .date(element.getDate())
-                .originCurrency(base)
-                .finalCurrency(symbol)
-                .value(String.valueOf(element.getValue()))
-                .build()));
-
-
-    }
-*/
 }
