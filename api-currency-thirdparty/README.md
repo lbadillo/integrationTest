@@ -44,8 +44,8 @@ CMD [ "node", "boot-application.js" ]
 
 ### Docker Build and Docker Run Images
 ```bash
-$ docker build . -t currency-api
-$ docker run -d --name currency-api-local -p 8080:8080 --env PORT=8080 --env BASE_PATH=/fixer currency-api
+$ docker build . -t current-api
+$ docker run -d --name current-api -p 3000:3000 --env PORT=3000 --env BASE_PATH=/fixer current-api
 ```
 
 ### Local Build Expose 
