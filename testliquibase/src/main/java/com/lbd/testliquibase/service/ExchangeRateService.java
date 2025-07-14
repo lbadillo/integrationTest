@@ -23,11 +23,10 @@ public class ExchangeRateService {
 
     private final BankRepository repository;
     private final PropertiesData propertiesData;
+    private final WebClient webClient;
 
 
     public Mono<FixerDTO> getFixerData(String base, String symbol) {
-
-        WebClient webClient = WebClient.create(propertiesData.getUrl());
 
 
         return webClient.get()
@@ -36,15 +35,15 @@ public class ExchangeRateService {
                         .queryParam("base", base)
                         .queryParam("symbols", symbol)
                         .build())
-                .exchangeToMono(response ->
-                        response.statusCode().is2xxSuccessful()
-                                ? response.bodyToMono(FixerDTO.class)
-                                : Mono.error(new MyException("Not Found One", 404))
-                ).flatMap(res -> {
+                .retrieve()
+                .onStatus(res -> !res.is2xxSuccessful(), mon -> Mono.error(new MyException("Web Error", 5)))
+                .bodyToMono(FixerDTO.class)
+                .flatMap(res -> {
                     return res.getRates().isEmpty()
-                            ? Mono.error(new MyException("Not Found Second", 404))
+                            ? Mono.error(new MyException("Rate Not Found", 4))
                             : Mono.just(res);
                 });
+
 
 
     }
