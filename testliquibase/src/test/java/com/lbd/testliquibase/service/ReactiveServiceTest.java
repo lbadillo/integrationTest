@@ -1,6 +1,7 @@
 package com.lbd.testliquibase.service;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestTemplate;
 import org.mockito.InjectMocks;
 import org.springframework.boot.test.context.SpringBootTest;
 import reactor.core.publisher.Flux;
@@ -82,6 +83,15 @@ public class ReactiveServiceTest {
                 .verifyComplete();
 
 
+    }
+
+    @Test
+    void otherTest() {
+        Flux<String> names = service.getNames();
+        Flux<String> names1 = names.map(String::toUpperCase);
+        Flux<String> names2 = names.flatMap(f -> Flux.just(f.toUpperCase()));
+        names1.subscribe(System.out::println);
+        names2.subscribe(System.out::println);
     }
 
 

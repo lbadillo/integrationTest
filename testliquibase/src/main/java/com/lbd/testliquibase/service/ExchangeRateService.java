@@ -68,6 +68,7 @@ public class ExchangeRateService {
                         .build()));
 
 
+
     }
 
     public Flux<ExchangeRateDTO> getRates(String symbol) {
