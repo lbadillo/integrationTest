@@ -19,6 +19,6 @@
 * only run the application
 
 # Postman
-API-THIRDPARTY-CURRENCY.postman_collection.json
+utils/API-THIRDPARTY-CURRENCY.postman_collection.json
 
 
