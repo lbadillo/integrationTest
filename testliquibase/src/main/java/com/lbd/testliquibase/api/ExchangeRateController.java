@@ -2,6 +2,7 @@ package com.lbd.testliquibase.api;
 
 
 import com.lbd.testliquibase.domain.ExchangeRateDTO;
+import com.lbd.testliquibase.domain.ProjectionDTO;
 import com.lbd.testliquibase.service.ExchangeRateService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @AllArgsConstructor
@@ -34,6 +37,13 @@ public class ExchangeRateController {
         return service.getResponse(origin, target);
 
 
+    }
+
+    @GetMapping("/projection/{currency}")
+    public List<ProjectionDTO> getCurrencies(
+            @PathVariable("currency") String currency) {
+
+        return service.getByOriginCurrency(currency);
     }
 
 

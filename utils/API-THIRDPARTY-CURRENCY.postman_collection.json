@@ -111,12 +111,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:7001/api/v1/exchange-rate/PER",
-					"protocol": "http",
+					"raw": "{{baseURL}}/api/v1/exchange-rate/PER",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "7001",
 					"path": [
 						"api",
 						"v1",
@@ -159,12 +157,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:7001/api/v1/exchange-rate/USD/PEN?source=ojo",
-					"protocol": "http",
+					"raw": "{{baseURL}}/api/v1/exchange-rate/USD/PEN?source=ojo",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "7001",
 					"path": [
 						"api",
 						"v1",
@@ -208,12 +204,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:7001/api/v1/exchange-rate",
-					"protocol": "http",
+					"raw": "{{baseURL}}/api/v1/exchange-rate",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "7001",
 					"path": [
 						"api",
 						"v1",
@@ -254,12 +248,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:7001/api/v1/exchange-rate/register/USD/PEN",
-					"protocol": "http",
+					"raw": "{{baseURL}}/api/v1/exchange-rate/register/USD/PEN",
 					"host": [
-						"localhost"
+						"{{baseURL}}"
 					],
-					"port": "7001",
 					"path": [
 						"api",
 						"v1",
@@ -278,6 +270,59 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "projection",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "header1",
+						"value": "miprimo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"originCurrency\": \"USD\",\n    \"finalCurrency\": \"PEN\"\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/v1/exchange-rate/projection/USD",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"exchange-rate",
+						"projection",
+						"USD"
+					],
+					"query": [
+						{
+							"key": "source",
+							"value": "pedrp",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:7001",
+			"type": "default"
 		}
 	]
 }

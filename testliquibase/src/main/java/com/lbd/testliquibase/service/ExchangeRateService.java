@@ -4,6 +4,7 @@ package com.lbd.testliquibase.service;
 import com.lbd.testliquibase.configuration.PropertiesData;
 import com.lbd.testliquibase.domain.ExchangeRateDTO;
 import com.lbd.testliquibase.domain.FixerDTO;
+import com.lbd.testliquibase.domain.ProjectionDTO;
 import com.lbd.testliquibase.entity.ExchangeRateEntity;
 import com.lbd.testliquibase.exceptions.MyException;
 import com.lbd.testliquibase.exceptions.MyException2;
@@ -15,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
 
 
 @Service
@@ -63,9 +65,14 @@ public class ExchangeRateService {
                     .value(tmp.getValue())
                     .build();
         } catch (Exception ex) {
-            ex.printStackTrace();
+
             throw new MyException2("Error with database insertion", 401);
         }
+
+    }
+
+    public List<ProjectionDTO> getByOriginCurrency(String currency) {
+        return repository.findAllByOriginCurrency(currency);
 
     }
 

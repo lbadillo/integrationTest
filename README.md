@@ -1,6 +1,7 @@
 # Integration Test
 ## Master Branch
 * PoC to separate unit test execution from  integration test execution
+* Use Data Spring projection (use postman projection request utils/API-THIRDPARTY-CURRENCY.postman_collection.json)
 
 ### Configuration
  * Use Maven surefire plug in to exclude integration test from the basic build lifecycle
