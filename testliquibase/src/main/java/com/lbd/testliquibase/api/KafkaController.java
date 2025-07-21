@@ -14,12 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class KafkaController {
     private final MessageProducer messageProducer;
-    @Value("${spring.kafka.topic1}")
-    private String topic;
+
 
     @PostMapping("/send")
     public String sendMessage(@RequestBody KafkaDTO message) {
-        messageProducer.sendMessage(topic, message);
+        messageProducer.sendMessage(message);
         return "Message sent: " + message.toString();
     }
 
