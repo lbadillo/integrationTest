@@ -316,6 +316,46 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "kafka",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "header1",
+						"value": "miprimo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data1\": \"USD\",\n    \"data2\": \"PEN\"\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/kafka/send",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"kafka",
+						"send"
+					],
+					"query": [
+						{
+							"key": "source",
+							"value": "pedrp",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"variable": [
