@@ -2,6 +2,7 @@ package com.lbd.testliquibase.api;
 
 
 import com.lbd.testliquibase.domain.ExchangeRateDTO;
+import com.lbd.testliquibase.domain.FixerDTO;
 import com.lbd.testliquibase.domain.ProjectionDTO;
 import com.lbd.testliquibase.service.ExchangeRateService;
 import lombok.AllArgsConstructor;
@@ -35,6 +36,19 @@ public class ExchangeRateController {
         log.info("Parameter: " + source);
 
         return service.getResponse(origin, target);
+
+
+    }
+
+    @GetMapping(value = "/{origin}/{target}")
+    public FixerDTO getData(@PathVariable("origin") String origin,
+                            @PathVariable("target") String target,
+                            @RequestHeader(required = false) String header1,
+                            @RequestParam(required = false) String source) {
+
+
+
+        return service.getData(origin, target);
 
 
     }

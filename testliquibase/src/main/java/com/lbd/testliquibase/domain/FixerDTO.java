@@ -6,13 +6,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class FixerDTO {
+public class FixerDTO implements Serializable {
     private Boolean success;
     private long timestamp;
     private String base;

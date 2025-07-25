@@ -6,13 +6,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@XmlRootElement
-public class ExchangeRateDTO {
+public class ExchangeRateDTO implements Serializable {
 
     private int id;
     private String originCurrency;

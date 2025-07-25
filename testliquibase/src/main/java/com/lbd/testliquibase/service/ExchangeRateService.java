@@ -12,6 +12,7 @@ import com.lbd.testliquibase.repository.BankRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -24,32 +25,20 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ExchangeRateService {
 
-    private static String VERSION = "/latest";
-
 
     private final BankRepository repository;
-    private final RestTemplate restTemplate;
-    private final PropertiesData propertiesData;
+    private final CacheService cacheService;
 
-    @Value("${services.fixer.name}")
+    @Value("${services.fixer.name}") // only for test
     private String valueDa;
 
-    public FixerDTO getData(String origin, String target) throws MyException {
-
-        String fooResourceUrl = propertiesData.getUrl() + VERSION;
-        log.info("este es el valor que buscabamos {}", valueDa);
-        try {
-            ResponseEntity<FixerDTO> response
-                    = restTemplate.getForEntity(fooResourceUrl + "?base=" + origin + "&symbols=" + target, FixerDTO.class);
-            return response.getBody();
-        } catch (Exception ex) {
-            throw new MyException("Base not found in external Rate service", 400);
-        }
-
+    public FixerDTO getData(String origin, String target) {
+        return cacheService.getData(origin, target);
     }
 
+
     public ExchangeRateDTO getResponse(String origin, String target) {
-        FixerDTO fixerDTO = getData(origin, target);
+        FixerDTO fixerDTO = cacheService.getData(origin, target);
         try {
             ExchangeRateEntity tmp = repository.save(ExchangeRateEntity.builder()
                     .date(fixerDTO.getDate())

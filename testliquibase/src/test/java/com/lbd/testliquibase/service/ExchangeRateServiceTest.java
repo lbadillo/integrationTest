@@ -46,6 +46,8 @@ public class ExchangeRateServiceTest {
     private BankRepository repository;
     @Mock
     private RestTemplate restTemplate;
+    @Mock
+    private CacheService cacheService;
 
     @Autowired
     private PropertiesData propertiesData;
@@ -61,7 +63,7 @@ public class ExchangeRateServiceTest {
         HashMap<String, Double> tmp2 = new HashMap<>();
         tmp2.put("Hola", 23.0);
         tmp = FixerDTO.builder().date("das").base("asdf").success(true).rates(tmp2).build();
-        service = new ExchangeRateService(repository, restTemplate,propertiesData);
+        service = new ExchangeRateService(repository, cacheService);
 
 
     }
@@ -73,7 +75,7 @@ public class ExchangeRateServiceTest {
 
         Mockito.when(restTemplate.getForEntity(anyString(), any())).thenReturn(ResponseEntity.ok(tmp));
         service.getData("USD", "PEN");
-        Mockito.verify(restTemplate, Mockito.times(1)).getForEntity(anyString(), any());
+        Mockito.verify(cacheService, Mockito.times(1)).getData(anyString(), any());
 
     }
 
