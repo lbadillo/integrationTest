@@ -1,0 +1,368 @@
+{
+	"info": {
+		"_postman_id": "6d153581-329d-46f7-b1e6-7b7718bf88a2",
+		"name": "API-THIRDPARTY-CURRENCY",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "349862"
+	},
+	"item": [
+		{
+			"name": "LOCAL_API",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apikey",
+						"value": "OErqAKvh8bLyI0rEJtKp8EyFwNcAHgYk"
+					},
+					{
+						"key": "Cookie",
+						"value": "nspatoken=7e8c140541366987a355cc1c3dd7cf5300f1b9a8a471886f03835a8080dc6c0a"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/fixer/latest?base=USD&symbols=PEN",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"fixer",
+						"latest"
+					],
+					"query": [
+						{
+							"key": "base",
+							"value": "USD"
+						},
+						{
+							"key": "symbols",
+							"value": "PEN"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EXTERNAL_API",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apiKey",
+						"value": "OErqAKvh8bLyI0rEJtKp8EyFwNcAHgYk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.apilayer.com/fixer/latest?base=USD&symbols=EUR,PEN",
+					"protocol": "https",
+					"host": [
+						"api",
+						"apilayer",
+						"com"
+					],
+					"path": [
+						"fixer",
+						"latest"
+					],
+					"query": [
+						{
+							"key": "base",
+							"value": "USD"
+						},
+						{
+							"key": "symbols",
+							"value": "EUR,PEN"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:7001/api/v1/exchange-rate/register/USD/PEN",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "header1",
+						"value": "miprimo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"originCurrency\": \"USD\",\n    \"finalCurrency\": \"PEN\"\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/v1/exchange-rate/PER",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"exchange-rate",
+						"PER"
+					],
+					"query": [
+						{
+							"key": "source",
+							"value": "pedrp",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get http://localhost:7001/api/v1/exchange-rate/register/USD/PEN",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "header1",
+						"value": "miprimo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"originCurrency\": \"USD\",\n    \"finalCurrency\": \"PEN\"\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/v1/exchange-rate/USD/PEN?source=ojo",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"exchange-rate",
+						"USD",
+						"PEN"
+					],
+					"query": [
+						{
+							"key": "source",
+							"value": "pedrp",
+							"disabled": true
+						},
+						{
+							"key": "source",
+							"value": "ojo"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:7001/api/v1/exchange-rate/register/USD/PEN",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "header1",
+						"value": "miprimo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"originCurrency\": \"USD\",\n    \"finalCurrency\": \"PEN\"\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/v1/exchange-rate",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"exchange-rate"
+					],
+					"query": [
+						{
+							"key": "source",
+							"value": "pedrp",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register normal",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "header1",
+						"value": "miprimo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"originCurrency\": \"USD\",\n    \"finalCurrency\": \"PEN\"\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/v1/exchange-rate/register/USD/PEN",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"exchange-rate",
+						"register",
+						"USD",
+						"PEN"
+					],
+					"query": [
+						{
+							"key": "source",
+							"value": "pedrp",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "projection",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "header1",
+						"value": "miprimo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"originCurrency\": \"USD\",\n    \"finalCurrency\": \"PEN\"\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/v1/exchange-rate/projection/USD",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"exchange-rate",
+						"projection",
+						"USD"
+					],
+					"query": [
+						{
+							"key": "source",
+							"value": "pedrp",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "kafka",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "header1",
+						"value": "miprimo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data1\": \"USD\",\n    \"data2\": \"PEN\"\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/kafka/send",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"kafka",
+						"send"
+					],
+					"query": [
+						{
+							"key": "source",
+							"value": "pedrp",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:7001",
+			"type": "default"
+		}
+	]
+}
