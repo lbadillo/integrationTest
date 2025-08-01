@@ -16,7 +16,7 @@ To run the application it needs:
     * settings default
   * Redis
     * settings default
-  *  Mocks
+  * Mocks
     * Review api-currency-thirdparty folder  
 
 
