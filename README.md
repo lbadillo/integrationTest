@@ -30,7 +30,8 @@ To run the application it needs:
 ### 1.1.2 Redis
 #### 1.1.2.1 Configuration
 * docker run -d --name redis-stack -p 6379:6379 -p 8001:8001 redis/redis-stack:latest
-* To viw redis: http://localhost:8001/redis-stack/browser
+* To view redis keys: http://localhost:8001/redis-stack/browser
+* New endpoints for test RedisTemplate. Test on postman (createRedis and getRedis)
 
 ### 1.1.3 Configuration Unit Test - Integration Test
  * Use Maven surefire plug in to exclude integration test from the basic build lifecycle

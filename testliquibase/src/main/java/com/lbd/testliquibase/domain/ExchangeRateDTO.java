@@ -14,7 +14,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class ExchangeRateDTO implements Serializable {
 
-    private int id;
+    private Integer id;
     private String originCurrency;
     private String finalCurrency;
     private String date;

@@ -225,6 +225,94 @@
 			"response": []
 		},
 		{
+			"name": "createredis",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "header1",
+						"value": "miprimo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"originCurrency\": \"USD\",\n    \"finalCurrency\": \"PEN\"\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/v1/redis/uno/dos",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"redis",
+						"uno",
+						"dos"
+					],
+					"query": [
+						{
+							"key": "source",
+							"value": "pedrp",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getredis",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "header1",
+						"value": "miprimo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"originCurrency\": \"USD\",\n    \"finalCurrency\": \"PEN\"\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/v1/redis/18",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"redis",
+						"18"
+					],
+					"query": [
+						{
+							"key": "source",
+							"value": "pedrp",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Register normal",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
